@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Question{
+    string Question;
+    vector<string> Options;
+    char Uanswer;
+};
+
+class Questions{
+    public:
+        int score = 0;
+
+        void List(vector<string>& Quest, vector<vector<string>>& Opt, vector<char>& Ans){  
+            Quest.push_back("Who is the God of Shinobi?");
+            Opt.push_back({"A. Uchiha Madara", "B. Senju Hashirama", "C. Uzumaki Naruto", "D. Namikaze Minato"});
+            Ans.push_back('B');
+            Quest.push_back("Who are the first friends of Uzumaki Naruto?");
+            Opt.push_back({"A. Sasuke and Sakura", "B. Sakura and Ino", "C. Shikamaru and Choji", "D. Shikamaru and Hinata"});
+            Ans.push_back('C');
+            Quest.push_back("Age of Uchiha Itachi when he became the Leader of ANBU Black Ops?");
+            Opt.push_back({"A. 13", "B. 15", "C. 10", "D. 19"});
+            Ans.push_back('A');
+            Quest.push_back("Who is not a member of Akatsuki?");
+            Opt.push_back({"A. Uchiha Itachi", "B. Iburi Orochimaru", "C. Mangetsu Zetsu", "D. Uchiha Madara"});
+            Ans.push_back('D');
+            Quest.push_back("Who is not a Student of Jirayia Sensei?");
+            Opt.push_back({"A. Uzumaki Naruto", "B. Namikaze Minato", "C. Hatake Kakashi", "D. Uzumaki Nagato"});
+            Ans.push_back('C');
+            Quest.push_back("Rin is a Jinchuriki of?");
+            Opt.push_back({"A. Shukaku", "B. Kurama", "C. Isobu","D. Son Goku"});
+            Ans.push_back('C');
+            Quest.push_back("Who can perform all chakra natures?");
+            Opt.push_back({"A. Sarutobi Hiruzen", "B. Hatake Kakashi", "C. Uchiha Sasuke", "D. Senju Tsunade"});
+            Ans.push_back('A');
+            Quest.push_back("What is the Strongest Jutsu used by Naruto?");
+            Opt.push_back({"A. Shadow Clones", "B. Rasengan", "C. Harem Jutsu","D. RasenShuriken"});
+            Ans.push_back('D');
+            Quest.push_back("The ability of Obito's Mangyeko Sharingan is: ");
+            Opt.push_back({"A. Tsukuyomi", "B. Tengai Shinsei", "C. Kamui", "D. Amaterasu"});
+            Ans.push_back('C');
+            Quest.push_back("The location where Naruto and Sasuke Fought after the forth great Ninja War:");
+            Opt.push_back({"A. Great Naruto Bridge", "B. The Valley Of the End", "C. Samurai Bridge", "D. Konaha"});
+            Ans.push_back('B');
+        }
+
+        void Process(vector<string>& Quest, vector<vector<string>>& Opt, vector<char>& Ans) {
+            for (int i = 0; i < Quest.size(); i++) {
+                char Answer;
+                cout << i + 1 << ". " << Quest[i] << endl;
+                for (auto j : Opt[i]) {
+                    cout << j << endl;
+                }
+                cin >> Answer;
+                if(Answer == Ans[i] || Answer == Ans[i] + 32){
+                    cout << "Correct Answer!!\n"<< endl;
+                    score++;
+                }
+                else{
+                    cout << "Incorrect Answer!!\n"<< endl ;
+                }
+            }
+        }
+};
+
+int main(){
+    cout << "QUIZ ON NARUTO" << endl;
+    Questions Q;
+    vector<string> Quest;
+    vector<vector<string>> Opt;
+    vector<char> Ans;
+    Q.List(Quest, Opt, Ans);
+    Q.Process(Quest, Opt, Ans);
+    cout << "You got " << Q.score << " out of 10" << endl;
+    return 0;
+}
